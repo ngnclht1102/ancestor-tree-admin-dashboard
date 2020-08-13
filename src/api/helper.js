@@ -1,8 +1,8 @@
 import fetchToCurl from 'fetch-to-curl';
 import Config from '../configs/env.config';
+import { loadAccessToken } from '../utils/storage'
 
 const showRequestAndResponse = true
-const loadAccessToken = localStorage.getItem('X-ACCESS-TOKEN')
 var accessToken = '';
 
 const getAccessToken = async () => {
