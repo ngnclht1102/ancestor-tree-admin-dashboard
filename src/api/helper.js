@@ -5,7 +5,7 @@ import { loadAccessToken } from '../utils/storage'
 const showRequestAndResponse = true
 var accessToken = '';
 
-export const getAccessToken = async () => {
+export const getAccessToken = () => {
     if (accessToken)
         return accessToken;
     accessToken = loadAccessToken();
