@@ -5,10 +5,10 @@ import { loadAccessToken } from '../utils/storage'
 const showRequestAndResponse = true
 var accessToken = '';
 
-const getAccessToken = async () => {
+export const getAccessToken = () => {
     if (accessToken)
         return accessToken;
-    accessToken = await loadAccessToken();
+    accessToken = loadAccessToken();
     return accessToken;
 };
 export const setAccessToken = (token) => {
