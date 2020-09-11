@@ -10,8 +10,11 @@
     "prop-types": "^15.7.2",
     "ra-data-json-server": "^3.8.0",
     "ra-data-simple-rest": "^3.8.3",
+    "ra-input-rich-text": "^3.8.3",
+    "ra-language-vietnamese": "^3.0.1",
     "react": "^16.13.1",
     "react-admin": "^3.8.1",
+    "react-admin-vietnamese": "https://github.com/ngnclht1102/react-admin-vietnamese.git",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },

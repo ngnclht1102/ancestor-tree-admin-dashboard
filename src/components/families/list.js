@@ -5,11 +5,10 @@ import {
     useListContext,
     TopToolbar,
     CreateButton,
-    ExportButton,
-    Button,
+    EditButton,
+    DeleteButton,
     sanitizeListRestProps,
 } from 'react-admin';
-import IconEvent from '@material-ui/icons/Event';
 
 const ListActions = (props) => {
     const {
@@ -39,33 +38,21 @@ const ListActions = (props) => {
                 filterValues,
                 context: 'button',
             })}
-            <CreateButton basePath={basePath} />
-            <ExportButton
-                disabled={total === 0}
-                resource={resource}
-                sort={currentSort}
-                filterValues={filterValues}
-                maxResults={maxResults}
-            />
-            {/* Add your custom actions */}
-            <Button
-                onClick={() => { alert('Your custom action'); }}
-                label="Show calendar"
-            >
-                <IconEvent />
-            </Button>
+            <CreateButton label="Thêm dòng họ" basePath={basePath} />
         </TopToolbar>
     );
 };
 
 
 const FamilyList = props => (
-  <List {...props} title="Danh sách dòng họ" actions={<ListActions />}>
+  <List bulkActionButtons={false} {...props} title="Danh sách dòng họ" actions={<ListActions />}>
       <Datagrid rowClick="edit">
           <TextField source="id" />
-          <TextField source="name" />
-          <TextField source="main_address" />
-          <TextField source="description" />
+          <TextField source="name" label="Tên dòng họ" />
+          <TextField source="main_address" label="Địa chỉ" />
+          <TextField source="description"  label="Thông tin thêm" />
+          <EditButton/>
+          <DeleteButton/>
       </Datagrid>
   </List>
 );
