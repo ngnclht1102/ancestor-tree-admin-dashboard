@@ -38,23 +38,20 @@ const ListActions = (props) => {
   )
 }
 
-const PeopleList = (props) => (
+const AppuserList = (props) => (
   <List
     bulkActionButtons={false}
     {...props}
-    title="Danh sách dòng họ"
+    title="Danh sách người xem"
     actions={<ListActions />}
   >
     <Datagrid rowClick="edit">
       <TextField source="id" />
-      <TextField source="full_name" label="Tên" />
-      <TextField source="nickname" label="Tên khác" />
-      <TextField source="dob_year" label="Sinh năm" />
-      <TextField source="family_level" label="Đời thứ" />
+      <TextField source="email" label="Email" />
       <EditButton />
       <DeleteButton />
     </Datagrid>
   </List>
 )
 
-export default PeopleList
+export default AppuserList

@@ -14,6 +14,10 @@ import ListPeople from './components/people/list'
 import CreatePeople from './components/people/create'
 import EditPeople from './components/people/edit'
 
+import ListAppuser from './components/appuser/list'
+import CreateAppuser from './components/appuser/create'
+import EditAppuser from './components/appuser/edit'
+
 const messages = {
   vi: vietnameseMessages
 }
@@ -38,6 +42,12 @@ const App = () => (
       list={ListPeople}
       edit={EditPeople}
       create={CreatePeople}
+    />
+    <Resource
+      name="appusers"
+      list={ListAppuser}
+      edit={EditAppuser}
+      create={CreateAppuser}
     />
   </Admin>
 )
