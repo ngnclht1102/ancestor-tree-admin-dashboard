@@ -25,7 +25,7 @@ import RichTextInput from 'ra-input-rich-text'
 import SexInput from '../../ra-components/input/SexInput'
 
 const PeopleCreate = (props) => (
-  <Create {...props}>
+  <Create {...props} title="Thêm người xem">
     <SimpleForm>
       <span>
         Tạo tài khoản và đưa cho người khác, họ có thể truy cập vào xem danh
@@ -40,7 +40,7 @@ const PeopleCreate = (props) => (
         <SelectInput optionText="name" optionValue="id" />
       </ReferenceInput>
       <TextInput source="name" label="Tên (tên gì cũng được)..." />
-      <TextInput source="email" label="Email..." />
+      <TextInput source="email" label="Email để đăng nhập" />
       <PasswordInput source="password" label="Mật khẩu..." />
     </SimpleForm>
   </Create>

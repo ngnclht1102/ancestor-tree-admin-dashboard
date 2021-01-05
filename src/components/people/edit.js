@@ -24,7 +24,7 @@ import RichTextInput from 'ra-input-rich-text'
 import SexInput from '../../ra-components/input/SexInput'
 
 const PeopleEdit = (props) => (
-  <Edit {...props}>
+  <Edit {...props} title="Sửa thông tin của người">
     <SimpleForm>
       <ReferenceInput
         label="Thuộc dòng họ"
