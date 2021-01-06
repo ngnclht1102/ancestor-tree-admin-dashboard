@@ -38,29 +38,31 @@ const ListActions = (props) => {
   )
 }
 
-const PeopleList = (props) => (
-  <>
-    <br />
-    <br />
-    <p>Đây là danh sách tất cả mọi người trong dòng họ</p>
-    <p>Bạn có thể thêm, sửa, và xóa thông tin của bất kỳ ai.</p>
-    <List
-      bulkActionButtons={false}
-      {...props}
-      title="Tất cả mọi người trong dòng họ"
-      actions={<ListActions />}
-    >
-      <Datagrid rowClick="edit">
-        <TextField source="id" />
-        <TextField source="full_name" label="Tên" />
-        <TextField source="nickname" label="Tên khác" />
-        <TextField source="dob_year" label="Sinh năm" />
-        <TextField source="family_level" label="Đời thứ" />
-        <EditButton />
-        <DeleteButton />
-      </Datagrid>
-    </List>
-  </>
-)
+const PeopleList = (props) => {
+  return (
+    <>
+      <br />
+      <br />
+      <p>Đây là danh sách tất cả mọi người trong dòng họ</p>
+      <p>Bạn có thể thêm, sửa, và xóa thông tin của bất kỳ ai.</p>
+      <List
+        bulkActionButtons={false}
+        {...props}
+        title="Tất cả mọi người trong dòng họ"
+        actions={<ListActions />}
+      >
+        <Datagrid rowClick="edit">
+          <TextField source="id" />
+          <TextField source="full_name" label="Tên" />
+          <TextField source="nickname" label="Tên khác" />
+          <TextField source="dob_year" label="Sinh năm" />
+          <TextField source="family_level" label="Đời thứ" />
+          <EditButton label="Sửa" />
+          <DeleteButton label="Xóa" />
+        </Datagrid>
+      </List>
+    </>
+  )
+}
 
 export default PeopleList

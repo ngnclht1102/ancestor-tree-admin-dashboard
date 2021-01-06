@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { List, Datagrid, TextField } from 'react-admin'
+import Empty from './empty'
 import { cloneElement } from 'react'
 
 import { Redirect } from 'react-router'
@@ -60,16 +61,10 @@ const FamilyList = (props) => {
         <>
           <br />
           <br />
-          <p>Đây là danh sách tất cả dòng họ của bạn</p>
-          <p>
-            Tuy nhiên, hiện tại bạn chỉ có thể tạo 1 dòng họ duy nhất. Để tạo
-            thêm dòng họ, vui lòng liên hệ: Mr. Nam, +84389544779,
-            ngnclht@gmail.com
-          </p>
-
           <List
             bulkActionButtons={false}
             {...props}
+            empty={<Empty />}
             title="Danh sách dòng họ"
             actions={<ListActions onDataFetched={onDataFetched} />}
           >
