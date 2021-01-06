@@ -1,12 +1,5 @@
-import { unauthenticatedPost } from './helper'
+import { authenticatedGet } from './helper'
 
-export const login = async ({ email, password }) => {
-  return await unauthenticatedPost(
-    '/admin/public/login',
-    {
-      email,
-      password
-    },
-    true
-  )
+export const get_families_api = async () => {
+  return await authenticatedGet('/admin/v1/families')
 }

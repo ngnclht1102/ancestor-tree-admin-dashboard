@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { List, Datagrid, TextField } from 'react-admin'
 import Empty from './empty'
 import { cloneElement } from 'react'
-
 import { Redirect } from 'react-router'
 
 import {
@@ -26,7 +25,7 @@ const ListActions = (props) => {
     total
   } = useListContext()
 
-  props.onDataFetched(data, total)
+  if (data) props.onDataFetched(Object.values(data), total)
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
       {filters &&
@@ -45,10 +44,12 @@ const ListActions = (props) => {
 }
 
 const FamilyList = (props) => {
-  //   const { data, total } = useListContext()
+  const [defaultFamily, setDefaultFamily] = useState(null)
   const [hideFamilyList, setHideFamilyList] = useState(false)
   const onDataFetched = useCallback((data, total) => {
-    console.log('data', data['1'])
+    if (data[0]) {
+      setDefaultFamily(data[0])
+    }
     if (total >= 1) {
       setHideFamilyList(true)
     }
@@ -56,7 +57,9 @@ const FamilyList = (props) => {
   return (
     <>
       {hideFamilyList ? (
-        <Redirect to="/families/1" />
+        defaultFamily ? (
+          <Redirect to={`/families/${defaultFamily.id}`} />
+        ) : null
       ) : (
         <>
           <br />
