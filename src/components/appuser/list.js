@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { List, Datagrid, TextField } from 'react-admin'
 import { cloneElement } from 'react'
-import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import {
   useListContext,
@@ -11,6 +10,8 @@ import {
   DeleteButton,
   sanitizeListRestProps
 } from 'react-admin'
+import { useSelector } from 'react-redux'
+import Empty from '../../ra-components/empty'
 import { get_data_of } from '../../utils/resource-seletector'
 import { get_families_api } from '../../api/families.api'
 
@@ -41,6 +42,9 @@ const ListActions = (props) => {
 const AppuserList = (props) => {
   const [readyToShowList, setReadyToShowList] = useState(false)
   const [shouldRedirectToFamily, setShouldRedirectToFamily] = useState(false)
+  const families = useSelector((state) => get_data_of(state, 'families')) || []
+  const persons = useSelector((state) => get_data_of(state, 'persons')) || []
+
   useEffect(() => {
     const check_if_has_family_already = async () => {
       console.log('check_if_has_family_already')
@@ -53,28 +57,41 @@ const AppuserList = (props) => {
         console.log(error)
       }
     }
-    if (!Object.keys(props.families).length) check_if_has_family_already()
+    check_if_has_family_already()
+    if (!families.length) check_if_has_family_already()
     else setReadyToShowList(true)
     return () => {}
-  }, [])
+  }, [families.length])
 
   return readyToShowList ? (
     <>
-      <br />
-      <br />
-      <p>
-        Đây là danh sách tài khoản có thể đăng nhập và xem thông tin gia phả.
-        Nhưng không thể sửa gia phả.
-      </p>
-      <p>
-        Có thể tạo 1 tài khoản và dùng chung cho tất cả mọi người. Hoặc cũng có
-        thể tạo cho mỗi người 1 tài khoản.
-      </p>
+      {persons.length ? (
+        <>
+          <br />
+          <br />
+          <p>
+            Đây là danh sách tài khoản có thể đăng nhập và xem thông tin gia
+            phả. Nhưng không thể sửa gia phả.
+          </p>
+          <p>
+            Có thể tạo 1 tài khoản và dùng chung cho tất cả mọi người. Hoặc cũng
+            có thể tạo cho mỗi người 1 tài khoản.
+          </p>
+        </>
+      ) : null}
+
       <List
-        bulkActionButtons={false}
         {...props}
+        bulkActionButtons={false}
         title="Danh sách người có thể xem gia phả"
         actions={<ListActions />}
+        empty={
+          <Empty
+            title="Chưa có người xem nào"
+            subtitle="Thêm người xem để họ có thể xem được gia phả"
+            buttonLabel="Thêm Người Xem"
+          />
+        }
       >
         <Datagrid rowClick="edit">
           <TextField source="id" />
@@ -89,9 +106,4 @@ const AppuserList = (props) => {
   ) : null
 }
 
-const mapStateToProps = (state) => {
-  return {
-    families: get_data_of(state, 'families')
-  }
-}
-export default connect(mapStateToProps, null)(AppuserList)
+export default AppuserList

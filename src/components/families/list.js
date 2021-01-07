@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { List, Datagrid, TextField } from 'react-admin'
-import Empty from './empty'
+import Empty from '../../ra-components/empty'
 import { cloneElement } from 'react'
 import { Redirect } from 'react-router'
-
+import { useSelector } from 'react-redux'
+import { get_data_of } from '../../utils/resource-seletector'
 import {
   useListContext,
   TopToolbar,
@@ -25,7 +26,6 @@ const ListActions = (props) => {
     total
   } = useListContext()
 
-  if (data) props.onDataFetched(Object.values(data), total)
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
       {filters &&
@@ -44,42 +44,43 @@ const ListActions = (props) => {
 }
 
 const FamilyList = (props) => {
-  const [defaultFamily, setDefaultFamily] = useState(null)
-  const [hideFamilyList, setHideFamilyList] = useState(false)
-  const onDataFetched = useCallback((data, total) => {
-    if (data[0]) {
-      setDefaultFamily(data[0])
-    }
-    if (total >= 1) {
-      setHideFamilyList(true)
-    }
-  }, [])
+  const families = useSelector((state) => get_data_of(state, 'families')) || []
+  const [renderRedirect, setRenderedRedirect] = useState(false)
+  useEffect(() => {
+    if (families.length) setRenderedRedirect(true)
+    return () => {}
+  }, [families.length])
+  if (renderRedirect)
+    return (
+      <Redirect
+        stopRender={!renderRedirect}
+        to={`/families/${families[0].id}`}
+      />
+    )
   return (
     <>
-      {hideFamilyList ? (
-        defaultFamily ? (
-          <Redirect to={`/families/${defaultFamily.id}`} />
-        ) : null
-      ) : (
-        <>
-          <br />
-          <br />
-          <List
-            bulkActionButtons={false}
-            {...props}
-            empty={<Empty />}
-            title="Danh sách dòng họ"
-            actions={<ListActions onDataFetched={onDataFetched} />}
-          >
-            <Datagrid rowClick="edit">
-              <TextField source="id" />
-              <TextField source="name" label="Tên dòng họ" />
-              <TextField source="main_address" label="Địa chỉ" />
-              <EditButton />
-            </Datagrid>
-          </List>
-        </>
-      )}
+      <br />
+      <br />
+      <List
+        bulkActionButtons={false}
+        {...props}
+        empty={
+          <Empty
+            title="Bạn chưa tạo dòng họ"
+            subtitle="Bắt đầu ngay bằng cách bấm nút 'Thêm' dưới đây"
+            buttonLabel="Thêm"
+          />
+        }
+        title="Danh sách dòng họ"
+        actions={<ListActions />}
+      >
+        <Datagrid rowClick="edit">
+          <TextField source="id" />
+          <TextField source="name" label="Tên dòng họ" />
+          <TextField source="main_address" label="Địa chỉ" />
+          <EditButton />
+        </Datagrid>
+      </List>
     </>
   )
 }

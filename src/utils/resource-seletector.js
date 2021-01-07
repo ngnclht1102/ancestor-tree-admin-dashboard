@@ -15,5 +15,5 @@ export const get_data_of = (state, part) => {
     delete data.undefined
     delete data.fetchedAt
   }
-  return data
+  return Object.values(data)
 }

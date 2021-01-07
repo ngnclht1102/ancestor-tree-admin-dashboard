@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { List, Datagrid, TextField } from 'react-admin'
-import { connect } from 'react-redux'
-import { bindActionCreators, Dispatch } from 'redux'
 import { cloneElement } from 'react'
 import {
   useListContext,
@@ -12,6 +10,8 @@ import {
   sanitizeListRestProps
 } from 'react-admin'
 import { Redirect } from 'react-router'
+import { useSelector } from 'react-redux'
+import Empty from '../../ra-components/empty'
 import { get_data_of } from '../../utils/resource-seletector'
 import { get_families_api } from '../../api/families.api'
 
@@ -46,6 +46,8 @@ const ListActions = (props) => {
 const PeopleList = (props) => {
   const [readyToShowList, setReadyToShowList] = useState(false)
   const [shouldRedirectToFamily, setShouldRedirectToFamily] = useState(false)
+  const families = useSelector((state) => get_data_of(state, 'families')) || []
+  const persons = useSelector((state) => get_data_of(state, 'persons')) || []
   useEffect(() => {
     const check_if_has_family_already = async () => {
       console.log('check_if_has_family_already')
@@ -58,19 +60,31 @@ const PeopleList = (props) => {
         console.log(error)
       }
     }
-    if (!Object.keys(props.families).length) check_if_has_family_already()
+    check_if_has_family_already()
+    if (!families.length) check_if_has_family_already()
     else setReadyToShowList(true)
     return () => {}
-  }, [])
+  }, [families.length])
   return readyToShowList ? (
     <>
-      <br />
-      <br />
-      <p>Đây là danh sách tất cả mọi người trong dòng họ</p>
-      <p>Bạn có thể thêm, sửa, và xóa thông tin của bất kỳ ai.</p>
+      {persons.length ? (
+        <>
+          <br />
+          <br />
+          <p>Đây là danh sách tất cả mọi người trong dòng họ</p>
+          <p>Bạn có thể thêm, sửa, và xóa thông tin của bất kỳ ai.</p>
+        </>
+      ) : null}
       <List
         bulkActionButtons={false}
         {...props}
+        empty={
+          <Empty
+            title="Bạn chưa thêm người vào dòng họ"
+            subtitle="Bắt đầu ngay bằng cách bấm nút 'Thêm' dưới đây"
+            buttonLabel="Thêm"
+          />
+        }
         title="Tất cả mọi người trong dòng họ"
         actions={<ListActions />}
       >
@@ -90,22 +104,4 @@ const PeopleList = (props) => {
   ) : null
 }
 
-const mapStateToProps = (state) => {
-  return {
-    families: get_data_of(state, 'families')
-  }
-}
-export default connect(mapStateToProps, null)(PeopleList)
-
-// const mapDispatchToProps = (dispatch: Dispatch) => ({
-//   // @ts-ignore
-//   act: bindActionCreators(actions, dispatch),
-//   onGotoProfessionalEditProfile: () => {
-//     // @ts-ignore
-//     dispatch(actions[t.NAVIGATE]({ routeName: PROFESSIONAL_UPDATE_PROFILE }))
-//   },
-//   onRefetchProfile: () => {
-//     // @ts-ignore
-//     dispatch(actions[t.RE_FETCH_PROVIDER_INFO_REQUEST]())
-//   }
-// })
+export default PeopleList
