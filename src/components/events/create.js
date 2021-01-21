@@ -35,6 +35,16 @@ const PeopleCreate = (props) => (
       <TextInput source="name" label="Tên sự kiện (ví dụ 'tảo mộ')..." />
 
       <>
+        <span>Lặp lại: </span>
+        <SelectInput
+          initialValue={2}
+          source="repeat_type"
+          label="Lặp lại hay không?"
+          choices={[
+            { id: 'yearly', name: 'Lặp lại mỗi năm' },
+            { id: 'no-repeat', name: 'Không' }
+          ]}
+        />
         <span>Ngày tháng: </span>
         <SelectInput
           initialValue={2}
@@ -61,11 +71,7 @@ const PeopleCreate = (props) => (
           min={1}
           label="Tháng (bắt buộc)"
         />
-        <NumberInput
-          source="dt_year"
-          validate={required()}
-          label="Năm (không bắt buộc)"
-        />
+        <NumberInput source="dt_year" label="Năm (không bắt buộc)" />
         <RichTextInput
           source="description"
           label="Nhập thêm thông tin ghi chú ở phía dưới:"
