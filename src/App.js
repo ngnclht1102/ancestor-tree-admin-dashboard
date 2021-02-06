@@ -22,6 +22,10 @@ import ListAppuser from './components/appuser/list'
 import CreateAppuser from './components/appuser/create'
 import EditAppuser from './components/appuser/edit'
 
+import ListEvents from './components/events/list'
+import CreateEvent from './components/events/create'
+import EditEvent from './components/events/edit'
+
 const messages = {
   vi: vietnameseMessages
 }
@@ -51,6 +55,14 @@ const App = () => {
         list={ListPeople}
         edit={EditPeople}
         create={CreatePeople}
+      />
+      <Resource
+        name="events"
+        icon={UserIcon}
+        options={{ label: 'Sự kiện' }}
+        list={ListEvents}
+        edit={EditEvent}
+        create={CreateEvent}
       />
       <Resource
         name="appusers"
