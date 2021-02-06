@@ -24,6 +24,7 @@ import EditAppuser from './components/appuser/edit'
 
 import ListEvents from './components/events/list'
 import CreateEvent from './components/events/create'
+import EditEvent from './components/events/edit'
 
 const messages = {
   vi: vietnameseMessages
@@ -60,7 +61,7 @@ const App = () => {
         icon={UserIcon}
         options={{ label: 'Sự kiện' }}
         list={ListEvents}
-        // edit={EditAppuser}
+        edit={EditEvent}
         create={CreateEvent}
       />
       <Resource

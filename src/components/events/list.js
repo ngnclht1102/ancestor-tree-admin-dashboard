@@ -39,7 +39,7 @@ const ListActions = (props) => {
   )
 }
 
-const AppuserList = (props) => {
+const EventList = (props) => {
   const [readyToShowList, setReadyToShowList] = useState(false)
   const [shouldRedirectToFamily, setShouldRedirectToFamily] = useState(false)
   const families = useSelector((state) => get_data_of(state, 'families')) || []
@@ -65,21 +65,6 @@ const AppuserList = (props) => {
 
   return readyToShowList ? (
     <>
-      {persons.length ? (
-        <>
-          <br />
-          <br />
-          <p>
-            Đây là danh sách tài khoản có thể đăng nhập và xem thông tin gia
-            phả. Nhưng không thể sửa gia phả.
-          </p>
-          <p>
-            Có thể tạo 1 tài khoản và dùng chung cho tất cả mọi người. Hoặc cũng
-            có thể tạo cho mỗi người 1 tài khoản.
-          </p>
-        </>
-      ) : null}
-
       <List
         {...props}
         bulkActionButtons={false}
@@ -96,7 +81,6 @@ const AppuserList = (props) => {
         <Datagrid rowClick="edit">
           <TextField source="id" />
           <TextField source="name" label="Tên sự kiện" />
-          <TextField source="datetime" label="Ngày" />
           <EditButton />
           <DeleteButton />
         </Datagrid>
@@ -107,4 +91,4 @@ const AppuserList = (props) => {
   ) : null
 }
 
-export default AppuserList
+export default EventList
