@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Admin, Resource } from 'react-admin'
+import { Route } from 'react-router-dom'
 import vietnameseMessages from 'react-admin-vietnamese'
 import polyglotI18nProvider from 'ra-i18n-polyglot'
 
@@ -22,9 +23,13 @@ import ListAppuser from './components/appuser/list'
 import CreateAppuser from './components/appuser/create'
 import EditAppuser from './components/appuser/edit'
 
-import ListEvents from './components/events/list'
-import CreateEvent from './components/events/create'
-import EditEvent from './components/events/edit'
+import Tree from './components/tree'
+
+import Menu from './ra-components/menu'
+
+// import ListEvents from './components/events/list'
+// import CreateEvent from './components/events/create'
+// import EditEvent from './components/events/edit'
 
 const messages = {
   vi: vietnameseMessages
@@ -37,8 +42,10 @@ const App = () => {
     <Admin
       // locale="vi"
       // i18nProvider={i18nProvider}
+      menu={Menu}
       authProvider={authProvider}
       dataProvider={dataProvider}
+      customRoutes={[<Route path="/tree" component={Tree} />]}
     >
       <Resource
         name="families"
@@ -56,14 +63,14 @@ const App = () => {
         edit={EditPeople}
         create={CreatePeople}
       />
-      <Resource
+      {/* <Resource
         name="events"
         icon={UserIcon}
         options={{ label: 'Sự kiện' }}
         list={ListEvents}
         edit={EditEvent}
         create={CreateEvent}
-      />
+      /> */}
       <Resource
         name="appusers"
         icon={UserIcon}
