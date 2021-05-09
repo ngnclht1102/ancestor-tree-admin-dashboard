@@ -26,23 +26,19 @@ import SexInput from '../../ra-components/input/SexInput'
 const PeopleEdit = (props) => (
   <Edit {...props} title="Sửa thông tin của người">
     <SimpleForm>
-      <ReferenceInput
+      {/* <ReferenceInput
         label="Thuộc dòng họ"
         source="family_id"
         reference="families"
       >
         <SelectInput optionText="name" optionValue="id" />
-      </ReferenceInput>
+      </ReferenceInput> */}
       <TextInput
         source="full_name"
         validate={required()}
         label="Tên đầy đủ..."
       />
-      <TextInput
-        source="nickname"
-        validate={required()}
-        label="Tên khác nếu có (ví dụ Cố Nền) ..."
-      />
+      <TextInput source="nickname" label="Tên khác nếu có (ví dụ Cố Nền) ..." />
 
       <SexInput label="Giới tính" source="gender" />
       <>
@@ -120,7 +116,6 @@ const PeopleEdit = (props) => (
       <NumberInput
         min={1}
         source="family_level"
-        validate={required()}
         label="Đời thứ mấy trong dòng họ?"
       />
       <span>Mối quan hệ gia đình:</span>
@@ -154,7 +149,6 @@ const PeopleEdit = (props) => (
       <NumberInput
         min={1}
         source="sibling_level"
-        validate={required()}
         label="Là con thứ mấy trong nhà?"
       />
       <SelectInput

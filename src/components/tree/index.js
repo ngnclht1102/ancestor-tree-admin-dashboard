@@ -47,9 +47,6 @@ const updateChildOfOnePerson = (depthLevel, person_id, children) => {
     const newServerData = JSON.parse(
       serverDataString.replace(findString, replaceString)
     )
-    console.log('old', serverDataString)
-    console.log('new', serverDataString.replace(findString, replaceString))
-    console.log('newServerData', newServerData)
     serverData = newServerData
   }
 }
@@ -86,10 +83,10 @@ export default function OrgChartTree() {
           orientation="horizontal"
           nodeSize={{ x: 250, y: 100 }}
           translate={{ x: 100, y: 200 }}
-          pathFunc="straight"
+          pathFunc="diagonal"
           enableLegacyTransitions={true}
           onNodeClick={(event) => {
-            console.log(event)
+            if (Object.keys(event.children).length) return
             setSelectedPerson(event)
           }}
           data={treeData}
