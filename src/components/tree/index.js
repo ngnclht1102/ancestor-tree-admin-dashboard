@@ -20,7 +20,7 @@ const serverData2TreeDataOfOnePerson = (person) => {
     id: person.id,
     name: person.full_name,
     attributes: person.spouse && {
-      'Vợ: ': person.spouse.full_name
+      Vợ: person.spouse.full_name
     },
     children: []
   }
@@ -41,12 +41,14 @@ const updateChildOfOnePerson = (depthLevel, person_id, children) => {
   else {
     const childrenString = JSON.stringify(children)
     const serverDataString = JSON.stringify(serverData)
-    const findString = `{"child_${person_id}":{`
+    const findString = `"child_${person_id}":{`
     const replaceString = findString + '"children":' + childrenString + ','
 
     const newServerData = JSON.parse(
       serverDataString.replace(findString, replaceString)
     )
+    console.log('old', serverDataString)
+    console.log('new', serverDataString.replace(findString, replaceString))
     console.log('newServerData', newServerData)
     serverData = newServerData
   }
