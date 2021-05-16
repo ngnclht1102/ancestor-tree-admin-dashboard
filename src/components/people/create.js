@@ -125,11 +125,6 @@ const PeopleCreate = (props) => (
           ) : null
         }}
       </FormDataConsumer>
-      <NumberInput
-        min={1}
-        source="family_level"
-        label="Đời thứ mấy trong dòng họ?"
-      />
       <span>Mối quan hệ gia đình:</span>
       <>
         <ReferenceInput
@@ -163,16 +158,6 @@ const PeopleCreate = (props) => (
         source="sibling_level"
         label="Là con thứ mấy trong nhà?"
       />
-      <SelectInput
-        source="is_root"
-        label="Có phải là ông tổ?"
-        initialValue={false}
-        choices={[
-          { id: true, name: 'Đúng, là ông tổ' },
-          { id: false, name: 'Không phải' }
-        ]}
-      />
-
       <RichTextInput
         source="description"
         label="Nhập thêm thông tin ghi chú ở phía dưới:"
