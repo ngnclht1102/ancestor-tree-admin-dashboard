@@ -91,7 +91,7 @@ const PeopleCreate = (props) => (
             <>
               <span>Ngày mất: </span>
               <SelectInput
-                initialValue={2}
+                initialValue={true}
                 source="dod_in_lunar"
                 label="Dương hay âm"
                 choices={[
@@ -156,11 +156,11 @@ const PeopleCreate = (props) => (
       <NumberInput
         min={1}
         source="sibling_level"
-        label="Là con thứ mấy trong nhà?"
+        label="Là con thứ mấy trong nhà? (không bắt buộc)"
       />
       <RichTextInput
         source="description"
-        label="Nhập thêm thông tin ghi chú ở phía dưới:"
+        label="Nhập thêm thông tin ghi chú (không bắt buộc)"
       />
     </SimpleForm>
   </Create>
