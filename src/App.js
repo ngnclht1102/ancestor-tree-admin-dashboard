@@ -71,14 +71,14 @@ const App = () => {
         edit={EditEvent}
         create={CreateEvent}
       /> */}
-      <Resource
+      {/* <Resource
         name="appusers"
         icon={UserIcon}
         options={{ label: 'Người xem' }}
         list={ListAppuser}
         edit={EditAppuser}
         create={CreateAppuser}
-      />
+      /> */}
     </Admin>
   )
 }
