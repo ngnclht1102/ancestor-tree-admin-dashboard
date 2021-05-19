@@ -9,6 +9,7 @@ import {
   TextInput,
   NumberInput,
   ReferenceInput,
+  Filter,
   ReferenceArrayInput,
   SelectArrayInput,
   NullableBooleanInput,
@@ -116,37 +117,57 @@ const Form = (props) => (
         label="Cha là ông"
         source="father_id"
         reference="persons"
-        perPage={50}
+        perPage={5000000}
         filterToQuery={(searchText) => ({
           arr: [
+            // {
+            //   field: 'ascii_full_name',
+            //   value: `%${searchText}%`,
+            //   operation: 'ilike'
+            // }
             {
-              field: 'ascii_full_name',
-              value: `%${searchText}%`,
-              operation: 'ilike'
+              field: 'gender',
+              value: `male`,
+              operation: '=='
             }
           ]
         })}
         allowEmpty
       >
-        <AutocompleteInput optionText="full_name" />
+        <AutocompleteInput
+          // shouldRenderSuggestions={(val) => {
+          //   return val.trim().length > 2
+          // }}
+          optionText="ascii_full_name"
+        />
       </ReferenceInput>
       <ReferenceInput
         label="Mẹ là bà"
         source="mother_id"
         reference="persons"
-        perPage={50}
+        perPage={5000000}
         filterToQuery={(searchText) => ({
           arr: [
+            // {
+            //   field: 'ascii_full_name',
+            //   value: `%${searchText}%`,
+            //   operation: 'ilike'
+            // },
             {
-              field: 'ascii_full_name',
-              value: `%${searchText}%`,
-              operation: 'ilike'
+              field: 'gender',
+              value: `female`,
+              operation: '=='
             }
           ]
         })}
         allowEmpty
       >
-        <AutocompleteInput optionText="full_name" />
+        <AutocompleteInput
+          // shouldRenderSuggestions={(val) => {
+          //   return val.trim().length > 2
+          // }}
+          optionText="ascii_full_name"
+        />
       </ReferenceInput>
     </>
     <br />
@@ -155,19 +176,19 @@ const Form = (props) => (
       label="Vợ/Chồng là:"
       source="spouse_id"
       reference="persons"
-      perPage={50}
+      perPage={5000000}
       filterToQuery={(searchText) => ({
         arr: [
-          {
-            field: 'ascii_full_name',
-            value: `%${searchText}%`,
-            operation: 'ilike'
-          }
+          // {
+          //   field: 'ascii_full_name',
+          //   value: `%${searchText}%`,
+          //   operation: 'ilike'
+          // }
         ]
       })}
       allowEmpty
     >
-      <AutocompleteInput optionText="full_name" />
+      <AutocompleteInput optionText="ascii_full_name" />
     </ReferenceInput>
     <br />
     <span>Con thứ mấy trong nhà: (không bắt buộc)</span>
