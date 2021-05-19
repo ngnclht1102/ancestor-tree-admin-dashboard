@@ -116,17 +116,37 @@ const Form = (props) => (
         label="Cha là ông"
         source="father_id"
         reference="persons"
+        perPage={50}
+        filterToQuery={(searchText) => ({
+          arr: [
+            {
+              field: 'ascii_full_name',
+              value: `%${searchText}%`,
+              operation: 'ilike'
+            }
+          ]
+        })}
         allowEmpty
       >
-        <SelectInput optionText="full_name" />
+        <AutocompleteInput optionText="full_name" />
       </ReferenceInput>
       <ReferenceInput
         label="Mẹ là bà"
         source="mother_id"
         reference="persons"
+        perPage={50}
+        filterToQuery={(searchText) => ({
+          arr: [
+            {
+              field: 'ascii_full_name',
+              value: `%${searchText}%`,
+              operation: 'ilike'
+            }
+          ]
+        })}
         allowEmpty
       >
-        <SelectInput optionText="full_name" />
+        <AutocompleteInput optionText="full_name" />
       </ReferenceInput>
     </>
     <br />
@@ -135,7 +155,7 @@ const Form = (props) => (
       label="Vợ/Chồng là:"
       source="spouse_id"
       reference="persons"
-      perPage={25}
+      perPage={50}
       filterToQuery={(searchText) => ({
         arr: [
           {
@@ -147,7 +167,6 @@ const Form = (props) => (
       })}
       allowEmpty
     >
-      {/* <SelectInput optionText="full_name" /> */}
       <AutocompleteInput optionText="full_name" />
     </ReferenceInput>
     <br />
