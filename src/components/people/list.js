@@ -78,6 +78,7 @@ const PeopleList = (props) => {
       <List
         bulkActionButtons={false}
         {...props}
+        perPage={50}
         empty={
           <Empty
             title="Bạn chưa thêm người vào dòng họ"

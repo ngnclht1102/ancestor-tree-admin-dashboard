@@ -26,7 +26,7 @@ export default {
       sort_direction: order,
       page: page,
       page_size: perPage,
-      filter: JSON.stringify(params.filter)
+      filter: JSON.stringify(params.filter || {})
     }
     const url = `${apiUrl}/${resource}?${stringify(query)}`
 
