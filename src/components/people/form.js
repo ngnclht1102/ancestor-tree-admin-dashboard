@@ -18,6 +18,7 @@ import {
   TextField,
   DateField,
   EditButton,
+  AutocompleteInput,
   required
 } from 'react-admin'
 import RichTextInput from 'ra-input-rich-text'
@@ -89,8 +90,22 @@ const Form = (props) => (
             <NumberInput source="dod_month" max={12} min={1} label="Tháng" />
             <NumberInput source="dod_year" label="Năm" />
             <br />
+            <span>Nơi an táng: (không bắt buộc)</span>
+            <br />
+            <TextInput source="tomb_address" label="An táng tại..." />
+            <br />
           </>
-        ) : null
+        ) : (
+          <>
+            <span>Địa chỉ: (không bắt buộc)</span>
+            <br />
+            <TextInput source="address" label="Địa chỉ..." />
+            <br />
+            <span>Số điện thoại (không bắt buộc)</span>
+            <br />
+            <TextInput source="phone_number" label="Số điện thoại..." />
+          </>
+        )
       }}
     </FormDataConsumer>
     <br />
@@ -120,9 +135,20 @@ const Form = (props) => (
       label="Vợ/Chồng là:"
       source="spouse_id"
       reference="persons"
+      perPage={25}
+      filterToQuery={(searchText) => ({
+        arr: [
+          {
+            field: 'ascii_full_name',
+            value: `%${searchText}%`,
+            operation: 'ilike'
+          }
+        ]
+      })}
       allowEmpty
     >
-      <SelectInput optionText="full_name" />
+      {/* <SelectInput optionText="full_name" /> */}
+      <AutocompleteInput optionText="full_name" />
     </ReferenceInput>
     <br />
     <span>Con thứ mấy trong nhà: (không bắt buộc)</span>
