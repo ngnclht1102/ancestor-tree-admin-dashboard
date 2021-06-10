@@ -79,6 +79,7 @@ const PeopleList = (props) => {
         bulkActionButtons={false}
         {...props}
         perPage={50}
+        sort={{ field: 'family_level', order: 'asc' }}
         empty={
           <Empty
             title="Bạn chưa thêm người vào dòng họ"
@@ -91,10 +92,10 @@ const PeopleList = (props) => {
       >
         <Datagrid rowClick="edit">
           <TextField source="id" />
-          <TextField source="full_name" label="Tên" />
-          <TextField source="nickname" label="Tên khác" />
-          <TextField source="dob_year" label="Sinh năm" />
           <TextField source="family_level" label="Đời thứ" />
+          <TextField source="full_name" label="Tên" />
+          <TextField source="nickname" label="Tên thường gọi" />
+          <TextField source="dob_year" label="Sinh năm" />
           <EditButton label="Sửa" />
           <DeleteButton label="Xóa" />
         </Datagrid>

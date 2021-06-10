@@ -36,7 +36,10 @@ const Form = (props) => (
       </ReferenceInput> */}
     <TextInput source="full_name" validate={required()} label="Tên đầy đủ..." />
     <br />
-    <TextInput source="nickname" label="Tên khác nếu có (ví dụ Cố Nền) ..." />
+    <TextInput
+      source="nickname"
+      label="Tên thường gọi nếu có (ví dụ Cố Nền) ..."
+    />
     <br />
     <SexInput initialValue="male" label="Giới tính" source="gender" />
     <>
