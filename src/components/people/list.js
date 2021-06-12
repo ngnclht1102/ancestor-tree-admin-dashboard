@@ -7,7 +7,10 @@ import {
   CreateButton,
   EditButton,
   DeleteButton,
-  sanitizeListRestProps
+  sanitizeListRestProps,
+  Filter,
+  TextInput,
+  BooleanInput
 } from 'react-admin'
 import { Redirect } from 'react-router'
 import { useSelector } from 'react-redux'
@@ -43,6 +46,16 @@ const ListActions = (props) => {
   )
 }
 
+const FilterToolbar = (props) => (
+  <Filter {...props}>
+    <TextInput label="Tìm kiếm..." source="q" alwaysOn />
+  </Filter>
+);
+
+const postRowStyle = (record, index) => ({
+  backgroundColor: record.is_alive ? '#efe' : 'white',
+});
+
 const PeopleList = (props) => {
   const [readyToShowList, setReadyToShowList] = useState(false)
   const [shouldRedirectToFamily, setShouldRedirectToFamily] = useState(false)
@@ -69,17 +82,16 @@ const PeopleList = (props) => {
     <>
       {persons.length ? (
         <>
-          <br />
-          <br />
-          <p>Đây là danh sách tất cả mọi người trong dòng họ</p>
-          <p>Bạn có thể thêm, sửa, và xóa thông tin của bất kỳ ai.</p>
+          <p>Đây là danh sách tất cả mọi người trong dòng họ. Có thể thêm, sửa, và xóa thông tin của bất kỳ ai.</p>
+          <p> Có thể tìm kiếm bằng bất cứ thông tin gì của một người, ví dụ tìm 1 người bằng tên, số điện thoại, tìm 1 người bằng tên thường gọi, tìm 1 người bằng địa chỉ, tìm 1 người bằng nơi an táng (Có thể tìm không dấu)</p>
         </>
       ) : null}
       <List
+        filters={<FilterToolbar />}
         bulkActionButtons={false}
+        sort={{ field: 'NOSORT', order: 'asc' }}
         {...props}
         perPage={50}
-        sort={{ field: 'family_level', order: 'asc' }}
         empty={
           <Empty
             title="Bạn chưa thêm người vào dòng họ"
@@ -90,8 +102,8 @@ const PeopleList = (props) => {
         title="Tất cả mọi người trong dòng họ"
         actions={<ListActions />}
       >
-        <Datagrid rowClick="edit">
-          <TextField source="id" />
+        <Datagrid rowClick="edit" rowStyle={postRowStyle}>
+          <TextField source="id" label="STT"/>
           <TextField source="family_level" label="Đời thứ" />
           <TextField source="full_name" label="Tên" />
           <TextField source="nickname" label="Tên thường gọi" />
