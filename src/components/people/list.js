@@ -53,7 +53,7 @@ const FilterToolbar = (props) => (
 );
 
 const postRowStyle = (record, index) => ({
-  backgroundColor: record.is_alive ? '#efe' : 'white',
+  backgroundColor: record.is_alive ? '#ffffff' : '#fff385',
 });
 
 const PeopleList = (props) => {
@@ -103,7 +103,7 @@ const PeopleList = (props) => {
         actions={<ListActions />}
       >
         <Datagrid rowClick="edit" rowStyle={postRowStyle}>
-          <TextField source="id" label="STT"/>
+          <TextField source="stt" label="STT"/>
           <TextField source="family_level" label="Đời thứ" />
           <TextField source="full_name" label="Tên" />
           <TextField source="nickname" label="Tên thường gọi" />

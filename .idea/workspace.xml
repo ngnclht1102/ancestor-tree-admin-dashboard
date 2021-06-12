@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b56d29b-5a5c-4c6b-a323-5f69ef4fe92b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.12072fae.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.12072fae.chunk.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.12072fae.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.5c4b1fb9.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.5c4b1fb9.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/families/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/families/list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.7603b70c.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.7603b70c.chunk.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/people/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/people/list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/configs/env.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/env.config.js" afterDir="false" />
     </list>
@@ -53,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623458834154</updated>
       <workItem from="1623458836413" duration="28000" />
-      <workItem from="1623458871507" duration="3666000" />
+      <workItem from="1623458871507" duration="5242000" />
     </task>
     <servers />
   </component>
