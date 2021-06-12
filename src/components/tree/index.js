@@ -80,7 +80,7 @@ export default function OrgChartTree() {
     <div id="treeWrapper" style={{ width: '100%', height: '100%' }}>
       {treeData ? (
         <Tree
-          orientation="horizontal"
+          orientation="vertical"
           nodeSize={{ x: 250, y: 100 }}
           translate={{ x: 100, y: 200 }}
           pathFunc="diagonal"
