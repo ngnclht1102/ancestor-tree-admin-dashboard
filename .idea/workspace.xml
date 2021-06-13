@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b56d29b-5a5c-4c6b-a323-5f69ef4fe92b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/people/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/people/list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/tree/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tree/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configs/env.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/env.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/resource-seletector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resource-seletector.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

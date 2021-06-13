@@ -17,6 +17,7 @@ const fetchTree = async (person_id) => {
 
 const serverData2TreeDataOfOnePerson = (person) => {
   const treePerson = {
+    sibling_level: person.sibling_level,
     id: person.id,
     name: person.full_name,
     attributes: person.spouse && {
@@ -30,18 +31,22 @@ const serverData2TreeDataOfOnePerson = (person) => {
         serverData2TreeDataOfOnePerson(person.children[key])
       )
     })
+  treePerson.children.sort((firstEl, secondEl) => {
+    return firstEl.sibling_level - secondEl.sibling_level
+  })
   return treePerson
 }
 
 var serverData = {}
 
-const updateChildOfOnePerson = (depthLevel, person_id, children) => {
+const updateChildOfOnePerson = (depthLevel, person_id, sibling_level, children) => {
+  const key_of_person = `child_${sibling_level}_${person_id}`
   if (depthLevel === 1)
-    serverData.children[`child_${person_id}`].children = children
+    serverData.children[key_of_person].children = children
   else {
     const childrenString = JSON.stringify(children)
     const serverDataString = JSON.stringify(serverData)
-    const findString = `"child_${person_id}":{`
+    const findString = `"${key_of_person}":{`
     const replaceString = findString + '"children":' + childrenString + ','
 
     const newServerData = JSON.parse(
@@ -66,6 +71,7 @@ export default function OrgChartTree() {
         updateChildOfOnePerson(
           selectedPerson.__rd3t.depth,
           selectedPerson.id,
+          selectedPerson.sibling_level,
           data.children
         )
 

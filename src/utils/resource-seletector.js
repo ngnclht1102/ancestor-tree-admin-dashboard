@@ -17,3 +17,14 @@ export const get_data_of = (state, part) => {
   }
   return Object.values(data)
 }
+
+export const get_list_params_of = (state, part) => {
+  const resources = get_resource(state)
+  const params =
+    resources && resources[part] && resources[part].list
+      ? {
+          ...resources[part].list.params
+        }
+      : undefined
+  return params
+}

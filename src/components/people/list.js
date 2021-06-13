@@ -10,12 +10,12 @@ import {
   sanitizeListRestProps,
   Filter,
   TextInput,
-  BooleanInput
+  useRecordContext
 } from 'react-admin'
 import { Redirect } from 'react-router'
 import { useSelector } from 'react-redux'
 import Empty from '../../ra-components/empty'
-import { get_data_of } from '../../utils/resource-seletector'
+import { get_data_of, get_list_params_of } from '../../utils/resource-seletector'
 import { get_families_api } from '../../api/families.api'
 
 const ListActions = (props) => {
@@ -55,6 +55,13 @@ const FilterToolbar = (props) => (
 const postRowStyle = (record, index) => ({
   backgroundColor: record.is_alive ? '#ffffff' : '#fff385',
 });
+
+var stt = {};
+const RowOrder = (props) => {
+  const params= useSelector((state) => get_list_params_of(state, 'persons')) || { page: 1 }
+  const record = useRecordContext(props);
+  return <span>{((parseInt(params.page) -1) * 50) + parseInt(record.stt)}</span>;
+}
 
 const PeopleList = (props) => {
   const [readyToShowList, setReadyToShowList] = useState(false)
@@ -103,7 +110,7 @@ const PeopleList = (props) => {
         actions={<ListActions />}
       >
         <Datagrid rowClick="edit" rowStyle={postRowStyle}>
-          <TextField source="stt" label="STT"/>
+          <RowOrder source="stt" label="STT"/>
           <TextField source="family_level" label="Đời thứ" />
           <TextField source="full_name" label="Tên" />
           <TextField source="nickname" label="Tên thường gọi" />
