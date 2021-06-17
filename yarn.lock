@@ -1776,7 +1776,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@material-ui/core@^4.11.2", "@material-ui/core@^4.11.4":
+"@material-ui/core@4.11.4", "@material-ui/core@^4.11.2":
   version "4.11.4"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.11.4.tgz#4fb9fe5dec5dcf780b687e3a40cff78b2b9640a4"
   integrity sha512-oqb+lJ2Dl9HXI9orc6/aN8ZIAMkeThufA5iZELf2LQeBn2NtjVilF5D2w7e9RpntAzDb4jK5DsVhkfOvFY/8fg==
@@ -10351,7 +10351,7 @@ ra-data-simple-rest@3.13.4:
   dependencies:
     query-string "^5.1.1"
 
-ra-dependent-input@^2.0.0-beta2:
+ra-dependent-input@2.0.0-beta2:
   version "2.0.0-beta2"
   resolved "https://registry.yarnpkg.com/ra-dependent-input/-/ra-dependent-input-2.0.0-beta2.tgz#b6832e1f814fc0bc96ade733b10782dee0961e7b"
   integrity sha512-97MbRCYZ5H1Eut2UG+7QxZuSHB/tPfkMydNG25FNJD+Q3DR6ZliohiWh6pIC+X7o6eSMzPn8kMHgLVIJnSBgEw==
@@ -10590,7 +10590,7 @@ react-final-form@^6.5.2:
   dependencies:
     "@babel/runtime" "^7.12.1"
 
-react-helmet@^6.1.0:
+react-helmet@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
   integrity sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==
@@ -10752,7 +10752,7 @@ react-transition-group@^4.4.0, react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.13.1:
+react@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==

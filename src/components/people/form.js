@@ -9,16 +9,6 @@ import {
   TextInput,
   NumberInput,
   ReferenceInput,
-  Filter,
-  ReferenceArrayInput,
-  SelectArrayInput,
-  NullableBooleanInput,
-  DateInput,
-  ReferenceManyField,
-  Datagrid,
-  TextField,
-  DateField,
-  EditButton,
   AutocompleteInput,
   required
 } from 'react-admin'
@@ -27,13 +17,6 @@ import SexInput from '../../ra-components/input/SexInput'
 
 const Form = (props) => (
   <SimpleForm {...props}>
-    {/* <ReferenceInput
-        label="Thuộc dòng họ"
-        source="family_id"
-        reference="families"
-      >
-        <SelectInput optionText="name" optionValue="id" />
-      </ReferenceInput> */}
     <TextInput source="full_name" validate={required()} label="Tên đầy đủ..." />
     <br />
     <TextInput
@@ -52,7 +35,7 @@ const Form = (props) => (
       <SelectInput
         source="dob_in_lunar"
         label="Dương hay âm"
-        initialValue={true}
+        initialValue={props.noInitialValue ? undefined : true}
         choices={[
           { id: true, name: 'Âm lịch' },
           { id: false, name: 'Dương lịch' }
@@ -66,7 +49,7 @@ const Form = (props) => (
     <SelectInput
       source="is_alive"
       label="Còn sống hay đã mất"
-      initialValue={true}
+      initialValue={props.noInitialValue ?  undefined : true}
       choices={[
         { id: true, name: 'Còn sống' },
         { id: false, name: 'Đã mất' }
@@ -84,7 +67,7 @@ const Form = (props) => (
             <SelectInput
               source="dod_in_lunar"
               label="Dương hay âm"
-              initialValue={true}
+              initialValue={props.noInitialValue ? undefined : true}
               choices={[
                 { id: true, name: 'Âm lịch' },
                 { id: false, name: 'Dương lịch' }
