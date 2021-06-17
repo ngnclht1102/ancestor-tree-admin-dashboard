@@ -16,13 +16,20 @@ const fetchTree = async (person_id) => {
 }
 
 const serverData2TreeDataOfOnePerson = (person) => {
+  const attributes = person.spouse ?  person.spouse.gender=='female' ? {
+    "Vợ": person.spouse.full_name
+  } : {
+    "Chồng": person.spouse.full_name
+  } : {}
+
+  if (person.husband_name && person.gender=='female') {
+    attributes['Chồng'] = person.husband_name
+  }
   const treePerson = {
     sibling_level: person.sibling_level,
     id: person.id,
     name: person.full_name,
-    attributes: person.spouse && {
-      Vợ: person.spouse.full_name
-    },
+    attributes: attributes,
     children: []
   }
   if (person.children)
