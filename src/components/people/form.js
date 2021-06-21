@@ -96,6 +96,20 @@ const Form = (props) => (
       }}
     </FormDataConsumer>
     <br />
+
+    <span>Mối quan hệ gia đình:</span>
+    <br />
+    <span>(Nếu là rể, hoặc con của các o dượng thì thuộc danh sách KHÁC)</span>
+    <SelectInput
+      source="belong_to_main_list_of_family"
+      label="Thuộc danh sách"
+      initialValue={props.noInitialValue ?  undefined : true}
+      choices={[
+        { id: true, name: 'Danh sách đinh' },
+        { id: false, name: 'Danh sách khác' },
+      ]}
+    />
+
     <span>Mối quan hệ gia đình:</span>
     <span>(Lưu ý nếu là dâu (rể) thì để trống phần cha mẹ, chỉ nhập cha mẹ ruột)</span>
     <span>(không bắt buộc)</span>
@@ -159,21 +173,6 @@ const Form = (props) => (
     </>
     <br />
     <span>Vợ chồng: (không bắt buộc)</span>
-    <FormDataConsumer>
-      {(formData, ...rest) => {
-        return !formData.formData.gender == 'male' ? null : (
-          <>
-            <br />
-            <span>Tên chồng (dượng), nếu không muốn nhập dượng vào danh sách, nhưng vẫn muốn hiển thị tên dượng ở trong cây gia phả thì điền tên dượng vào đây</span>
-            <br />
-            <TextInput source="husband_name" label="Tên chồng:" />
-          </>
-        )
-      }}
-    </FormDataConsumer>
-
-    <br />
-    <span>Nếu đã nhập vợ/chồng rồi, thì bấm vào phía dưới để chọn 1 người là vợ chồng</span>
     <ReferenceInput
       label="Vợ/Chồng là:"
       source="spouse_id"

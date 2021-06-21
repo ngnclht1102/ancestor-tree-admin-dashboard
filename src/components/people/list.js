@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { List, Datagrid, TextField } from 'react-admin'
+import { List, Datagrid, TextField, SelectInput } from 'react-admin'
 import { cloneElement } from 'react'
 import {
   useListContext,
@@ -49,6 +49,23 @@ const ListActions = (props) => {
 const FilterToolbar = (props) => (
   <Filter {...props}>
     <TextInput label="Tìm kiếm..." source="q" alwaysOn />
+    <SelectInput
+      source="belong_to_main_list_of_family"
+      label="Thuộc danh sách"
+      choices={[
+        { id: true, name: 'Danh sách đinh' },
+        { id: false, name: 'Danh sách khác' },
+      ]}
+    />
+    <SelectInput
+      source="is_alive"
+      label="Còn sống hay đã mất"
+      choices={[
+        { id: null, name: 'Tất cả' },
+        { id: true, name: 'Còn sống' },
+        { id: false, name: 'Đã mất' },
+      ]}
+    />
   </Filter>
 );
 
@@ -56,7 +73,6 @@ const postRowStyle = (record, index) => ({
   backgroundColor: record.is_alive ? '#ffffff' : '#fff385',
 });
 
-var stt = {};
 const RowOrder = (props) => {
   const params= useSelector((state) => get_list_params_of(state, 'persons')) || { page: 1 }
   const record = useRecordContext(props);

@@ -22,9 +22,6 @@ const serverData2TreeDataOfOnePerson = (person) => {
     "Chồng": person.spouse.full_name
   } : {}
 
-  if (person.husband_name && person.gender=='female') {
-    attributes['Chồng'] = person.husband_name
-  }
   const treePerson = {
     sibling_level: person.sibling_level,
     id: person.id,
