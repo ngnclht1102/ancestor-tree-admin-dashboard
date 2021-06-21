@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b56d29b-5a5c-4c6b-a323-5f69ef4fe92b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/people/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/people/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/people/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/people/list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tree/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tree/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/configs/env.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/env.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +23,11 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/public/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/people/list.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/people/form.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1tpGtltk3zrfNIkNAgAHBsA6Mnu" />
   <component name="ProjectViewState">
@@ -48,7 +57,8 @@
       <workItem from="1623458871507" duration="6547000" />
       <workItem from="1623653452381" duration="121000" />
       <workItem from="1623712047053" duration="1829000" />
-      <workItem from="1623907002270" duration="2609000" />
+      <workItem from="1623907002270" duration="2684000" />
+      <workItem from="1624174649934" duration="1998000" />
     </task>
     <servers />
   </component>
