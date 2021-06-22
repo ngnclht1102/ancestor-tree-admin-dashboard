@@ -49,6 +49,7 @@ const ListActions = (props) => {
 const FilterToolbar = (props) => (
   <Filter {...props}>
     <TextInput label="Tìm kiếm..." source="q" alwaysOn />
+    <TextInput label="Năm sinh" source="dob_year" alwaysOn />
     <SelectInput
       source="belong_to_main_list_of_family"
       label="Thuộc danh sách"
@@ -56,6 +57,7 @@ const FilterToolbar = (props) => (
         { id: true, name: 'Danh sách đinh' },
         { id: false, name: 'Danh sách khác' },
       ]}
+      alwaysOn
     />
     <SelectInput
       source="is_alive"
@@ -65,6 +67,7 @@ const FilterToolbar = (props) => (
         { id: true, name: 'Còn sống' },
         { id: false, name: 'Đã mất' },
       ]}
+      alwaysOn
     />
   </Filter>
 );

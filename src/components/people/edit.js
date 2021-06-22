@@ -7,7 +7,7 @@ const PeopleEdit = (props) => {
   // console.log(props)
   return (
     <Edit {...props} title="Sửa thông tin của người">
-      <Form {...props} noInitialValue={true} />
+      <Form {...props} fromEditPage={true} />
     </Edit>
   )
 }
