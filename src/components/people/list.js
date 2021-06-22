@@ -48,7 +48,7 @@ const ListActions = (props) => {
 
 const FilterToolbar = (props) => (
   <Filter {...props}>
-    <TextInput label="Tìm kiếm..." source="q" alwaysOn />
+    <TextInput label="Tìm bằng tên..." source="q" alwaysOn />
     <TextInput label="Năm sinh" source="dob_year" alwaysOn />
     <SelectInput
       source="belong_to_main_list_of_family"
@@ -109,7 +109,7 @@ const PeopleList = (props) => {
       {persons.length ? (
         <>
           <p>Đây là danh sách tất cả mọi người trong dòng họ. Có thể thêm, sửa, và xóa thông tin của bất kỳ ai.</p>
-          <p> Có thể tìm kiếm bằng bất cứ thông tin gì của một người, ví dụ tìm 1 người bằng tên, số điện thoại, tìm 1 người bằng tên thường gọi, tìm 1 người bằng địa chỉ, tìm 1 người bằng nơi an táng (Có thể tìm không dấu)</p>
+          <p>Có thể tìm kiếm bằng người bằng tên, (Có thể tìm không dấu).</p>
         </>
       ) : null}
       <List
@@ -134,6 +134,7 @@ const PeopleList = (props) => {
           <TextField source="full_name" label="Tên" />
           <TextField source="nickname" label="Tên thường gọi" />
           <TextField source="dob_year" label="Sinh năm" />
+          <TextField source="address" label="Địa chỉ" />
           <EditButton label="Sửa" />
           <DeleteButton label="Xóa" />
         </Datagrid>
