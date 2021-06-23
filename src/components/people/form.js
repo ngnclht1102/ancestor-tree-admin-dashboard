@@ -127,6 +127,7 @@ const Form = (props) => {
           reference="persons"
           perPage={5000000}
           filterToQuery={(searchText) => ({
+            all_list: true,
             arr: [
               // {
               //   field: 'ascii_full_name',
@@ -155,6 +156,7 @@ const Form = (props) => {
           reference="persons"
           perPage={5000000}
           filterToQuery={(searchText) => ({
+            all_list: true,
             arr: [
               // {
               //   field: 'ascii_full_name',
@@ -165,7 +167,7 @@ const Form = (props) => {
                 field: 'gender',
                 value: `female`,
                 operation: '=='
-              }
+              },
             ]
           })}
           allowEmpty
@@ -186,6 +188,7 @@ const Form = (props) => {
         reference="persons"
         perPage={5000000}
         filterToQuery={(searchText) => ({
+          all_list: true,
           arr: [
             // {
             //   field: 'ascii_full_name',
